@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Input from './Input';
+import {useState} from "react";
+import List from './List';
+import {useCallback} from "react";
 function App() {
+  const[data,changeData]=useState([]);
+  const name="Aayush";
+  function getData(value)
+  {
+   
+     changeData((prev)=>{
+       return [...prev,value]
+     })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div><h1>hello</h1>
+    <Input getData={getData}/>
+    <List list={data}/>
     </div>
   );
 }
